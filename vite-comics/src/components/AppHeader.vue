@@ -56,8 +56,9 @@ export default {
         <img src="../img/dc-logo.png" alt="">
         <ul>
             <li v-for="(item, index) in navItems" 
-            :key="index">
-                <a :href="item.url" :class="{active : (index == activeIndex)}" @click="activeIndex = index">
+            :key="index"
+            :class="{active : (index == activeIndex)}">
+                <a :href="item.url"  @click="activeIndex = index">
                     {{ item.label }}
                 </a>
             </li>
@@ -75,7 +76,7 @@ header .container{
 }
 
 header img {
-    height: 50px;
+    height: 70px;
     padding: .4rem 0;
 }
 
@@ -84,26 +85,29 @@ ul {
     display: flex;
     gap: 1rem;
     align-items: center;
-    height: 70px;
+    height: 100px;
 }
 
 li {
-    height: 70px;
     display: flex;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 a {
+    padding: 40px 0;
     text-decoration: none;
     color: inherit;
-    margin-top: 25px;
+    align-self: stretch;
 }
 
-a.active,
-a:hover {
+li.active,
+li:hover {
     color: rgb(60, 130, 240);
 }
 
-a.active{
+li.active{
     border-bottom: 4px solid rgb(60, 130, 240);
 }
 </style>

@@ -183,7 +183,7 @@
         <div class="container">
             <div v-for="card in footerCards" :key="card.img" class="card">
                 <img :src="'./src/img/' + card.img" alt="">
-                <a href="card.link">{{ card.label }}</a>
+                <a :href="card.link">{{ card.label }}</a>
             </div>
         </div>
     </div>
@@ -248,6 +248,7 @@
         color: white;
         width: 100%;
         background-image: url(../img/footer-bg.jpg);
+        background-size: contain;
         display: flex;
         flex-wrap: wrap;
     }
@@ -261,6 +262,7 @@
         font-size: .8rem;
         margin: 10px 0;
     }
+    
     h4 {
         font-size: .8rem;
         color: rgb(60, 130, 240);
@@ -283,13 +285,13 @@
         
     }
     
-    a {
+    .footerLinks a {
         opacity: .7;
         filter: brightness(100%);
         transition: all .1s linear;
     }
 
-    a:hover {
+    .footerLinks a:hover {
         opacity: 1;
         filter: brightness(110%);
     }
