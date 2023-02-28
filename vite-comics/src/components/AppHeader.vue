@@ -2,6 +2,7 @@
 export default {
     data() {
         return {
+            activeIndex: 1,
             navItems: [
                 {
                     label: 'CHARACTERS',
@@ -54,9 +55,9 @@ export default {
     <div class="container">
         <img src="../img/dc-logo.png" alt="">
         <ul>
-            <li v-for="item in navItems" 
-            :key="item.label">
-                <a :href="item.url">
+            <li v-for="(item, index) in navItems" 
+            :key="index">
+                <a :href="item.url" :class="{active : (index == activeIndex)}" @click="activeIndex = index">
                     {{ item.label }}
                 </a>
             </li>
@@ -75,17 +76,34 @@ header .container{
 
 header img {
     height: 50px;
-    padding: .5rem 0;
+    padding: .4rem 0;
 }
 
 ul {
     list-style: none;
     display: flex;
     gap: 1rem;
+    align-items: center;
+    height: 70px;
+}
+
+li {
+    height: 70px;
+    display: flex;
 }
 
 a {
     text-decoration: none;
     color: inherit;
+    margin-top: 25px;
+}
+
+a.active,
+a:hover {
+    color: rgb(60, 130, 240);
+}
+
+a.active{
+    border-bottom: 4px solid rgb(60, 130, 240);
 }
 </style>

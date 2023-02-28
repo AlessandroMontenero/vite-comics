@@ -123,6 +123,55 @@
                             },
                         ]
                     }
+                ],
+                footerCards: [
+                    {
+                        label: 'DIGITAL COMICS',
+                        link: '#',
+                        img: 'buy-comics-digital-comics.png'
+                    },
+                    {
+                        label: 'DC MERCHANDISE',
+                        link: '#',
+                        img: 'buy-comics-merchandise.png'
+                    },
+                    {
+                        label: 'SUBSCRIPTION',
+                        link: '#',
+                        img: 'buy-comics-subscriptions.png'
+                    },
+                    {
+                        label: 'COMIC SHOP LOCATORS',
+                        link: '#',
+                        img: 'buy-comics-shop-locator.png'
+                    },
+                    {
+                        label: 'DC POWER VISA',
+                        link: '#',
+                        img: 'buy-dc-power-visa.svg'
+                    }
+                ],
+                socialLinks: [
+                    {
+                        img: 'footer-facebook.png',
+                        link: '#'
+                    },
+                    {
+                        img: 'footer-twitter.png',
+                        link: '#'
+                    },
+                    {
+                        img: 'footer-youtube.png',
+                        link: '#'
+                    },
+                    {
+                        img: 'footer-pinterest.png',
+                        link: '#'
+                    },
+                    {
+                        img: 'footer-periscope.png',
+                        link: '#'
+                    }
                 ]
             }
         }
@@ -130,6 +179,14 @@
 </script>
 
 <template>
+    <div class="blueBanner">
+        <div class="container">
+            <div v-for="card in footerCards" :key="card.img" class="card">
+                <img :src="'./src/img/' + card.img" alt="">
+                <a href="card.link">{{ card.label }}</a>
+            </div>
+        </div>
+    </div>
     <footer>
         <div class="container">
             <div class="footerLinks">
@@ -145,38 +202,84 @@
             <div class="footerImg">
             </div>
         </div>
+        <div class="socialFooter">
+            <div class="container">
+                <a href="#">
+                    <button>
+                        SIGN-UP NOW!
+                    </button>
+                </a>
+                <div class="followUs">
+                    <h4>FOLLOW US</h4>
+                    <div v-for="social in socialLinks">
+                        <a href="social.link"><img :src="'./src/img/' + social.img" alt=""></a>
+                    </div>
+                </div> 
+            </div>
+        </div>
     </footer>
+
 </template>
 
 <style scoped>
+    .blueBanner {
+        background-color: rgb(60, 130, 240);
+    }
+
+    .blueBanner .container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: white;
+    }
+
+    .blueBanner img {
+        height: 50px;
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    .blueBanner .card {
+        display: flex;
+        align-items: center;
+    }
+
     footer {
         color: white;
         width: 100%;
         background-image: url(../img/footer-bg.jpg);
         display: flex;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
     }
 
     h2 {
         font-size: 1.5rem;
+        margin: .7rem 0;
     }
 
     h3 {
         font-size: .8rem;
+        margin: 10px 0;
+    }
+    h4 {
+        font-size: .8rem;
+        color: rgb(60, 130, 240);
     }
     
     .container {
         display: flex;
         flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
     
     .footerLinks {
         width: 40%;
-        height: 410px;
+        height: 360px;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        gap: 1.5rem;
+        gap: 10px;
         
     }
     
@@ -195,10 +298,40 @@
         width: 60%;
         align-self: stretch;
         display: flex;
-        height: 430px;
+        height: 360px;
         background-image: url(../img/dc-logo-bg.png);
         background-repeat: no-repeat;
         background-position: right;
         background-size: 70%;
+    }
+
+    .socialFooter {
+        width: 100%;
+        background-color: rgb(48, 48, 48);
+    }
+
+    button {
+        padding: 10px;
+        margin: 1rem 0;
+        background-color: inherit;
+        border: 2px solid rgb(60, 130, 240);
+        color: white;
+        cursor: pointer;
+        filter: brightness(100%);
+        transition: all .1s linear;
+    }
+
+    button:hover {
+        filter: brightness(110%);
+    }
+
+    .followUs {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .followUs img {
+        height: 30px;
+        aspect-ratio: 1 / 1;
     }
 </style>
