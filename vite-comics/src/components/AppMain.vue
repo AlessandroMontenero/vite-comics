@@ -100,30 +100,34 @@
     </div>
     <div class="container">
         <div class="comics">
-            <div class="banner">CURRENT SERIES</div>
+            <div class="banner"><h2>CURRENT SERIES</h2></div>
             <div v-for="comic in comics" class="comic">
                 <img :src="comic.thumb" alt="">
-                {{ comic.series }}
+                <h4>{{ comic.series }}</h4>
             </div>
         </div>
-        <button>LOAD MORE</button>
+        <button><h3>LOAD MORE</h3></button>
     </div>
 </main>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 main {
     background-color: black;
     color: white;
     padding: 1rem 0;
 }
 
-.hero img {
+.hero {
     width: 100%;
-    height: 350px;
-    object-fit: cover;
-    object-position: top;
+    img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        object-position: top;
+    }
 }
+
 
 .container {
     display: flex;
@@ -134,22 +138,28 @@ main {
 
 .comics {
     display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
     gap: .4rem;
-    padding-top: 2rem;
+    padding-top: 3rem;
     position: relative;
-    justify-content: space-around;
+    .banner {
+        position: absolute;
+        left: 0;
+        padding: 0 .4rem;
+        transform: translateY(-4.5rem);
+        font-weight: 600;
+        background-color: rgb(60, 130, 240);
+    }
+    
+    img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        object-position: top;
+    }
 }
 
-.comics .banner {
-    position: absolute;
-    left: 0;
-    font-size: 1.2rem;
-    padding: .4rem;
-    transform: translateY(-150%);
-    font-weight: 600;
-    background-color: rgb(60, 130, 240);
-}
 
 .comic {
     display: flex;
@@ -160,12 +170,6 @@ main {
     gap: .4rem;
 }
 
-.comics img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    object-position: top;
-}
 
 button {
     font-size: 1rem;

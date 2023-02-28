@@ -183,7 +183,7 @@
         <div class="container">
             <div v-for="card in footerCards" :key="card.img" class="card">
                 <img :src="'./src/img/' + card.img" alt="">
-                <a :href="card.link">{{ card.label }}</a>
+                <a :href="card.link"><h5>{{ card.label }}</h5></a>
             </div>
         </div>
     </div>
@@ -206,11 +206,11 @@
             <div class="container">
                 <a href="#">
                     <button>
-                        SIGN-UP NOW!
+                        <h3>SIGN-UP NOW!</h3> 
                     </button>
                 </a>
                 <div class="followUs">
-                    <h4>FOLLOW US</h4>
+                    <h4 class="blue">FOLLOW US</h4>
                     <div v-for="social in socialLinks">
                         <a href="social.link"><img :src="'./src/img/' + social.img" alt=""></a>
                     </div>
@@ -221,28 +221,30 @@
 
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
     .blueBanner {
         background-color: rgb(60, 130, 240);
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        
+        .card {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        img {
+            height: 50px;
+            margin: 1rem;
+        }
     }
 
-    .blueBanner .container {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        color: white;
-    }
 
-    .blueBanner img {
-        height: 50px;
-        margin: 1rem;
-        padding: 1rem;
-    }
     
-    .blueBanner .card {
-        display: flex;
-        align-items: center;
-    }
 
     footer {
         color: white;
@@ -251,21 +253,6 @@
         background-size: contain;
         display: flex;
         flex-wrap: wrap;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-        margin: .7rem 0;
-    }
-
-    h3 {
-        font-size: .8rem;
-        margin: 10px 0;
-    }
-    
-    h4 {
-        font-size: .8rem;
-        color: rgb(60, 130, 240);
     }
     
     .container {
@@ -282,19 +269,14 @@
         flex-direction: column;
         flex-wrap: wrap;
         gap: 10px;
-        
+
+        li {
+            margin: 0;
+            padding: 0;
+        }
     }
     
-    .footerLinks a {
-        opacity: .7;
-        filter: brightness(100%);
-        transition: all .1s linear;
-    }
 
-    .footerLinks a:hover {
-        opacity: 1;
-        filter: brightness(110%);
-    }
 
     .footerImg {
         width: 60%;
@@ -331,9 +313,10 @@
         display: flex;
         align-items: center;
         gap: 1rem;
-    }
-    .followUs img {
-        height: 30px;
-        aspect-ratio: 1 / 1;
+
+        img {
+            height: 30px;
+            aspect-ratio: 1 / 1;
+        }
     }
 </style>

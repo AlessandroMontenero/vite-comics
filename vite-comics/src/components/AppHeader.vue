@@ -59,7 +59,7 @@ export default {
             :key="index"
             :class="{active : (index == activeIndex)}">
                 <a :href="item.url"  @click="activeIndex = index">
-                    {{ item.label }}
+                    <h3>{{ item.label }}</h3>
                 </a>
             </li>
         </ul>
@@ -67,47 +67,53 @@ export default {
 </header>
 </template>
 
-<style scoped>
-header .container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+<style lang="scss" scoped>
+header {
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    img {
+        height: 70px;
+        padding: .4rem 0;
+    }
 }
 
-header img {
-    height: 70px;
-    padding: .4rem 0;
-}
 
 ul {
-    list-style: none;
     display: flex;
     gap: 1rem;
     align-items: center;
     height: 100px;
-}
+    
+    li {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        box-sizing: border-box;
+        h3 {
+            padding: 0;
+            margin: 0;
+        }
+    }
+    
+    li.active,
+    li:hover {
+        color: rgb(60, 130, 240);
+    }
+    
+    li.active{
+        border-bottom: 4px solid rgb(60, 130, 240);
+    }
 
-li {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    box-sizing: border-box;
-}
-
-a {
-    padding: 40px 0;
-    text-decoration: none;
-    color: inherit;
-    align-self: stretch;
-}
-
-li.active,
-li:hover {
-    color: rgb(60, 130, 240);
-}
-
-li.active{
-    border-bottom: 4px solid rgb(60, 130, 240);
+    a {
+        padding: 40px 0;
+        text-decoration: none;
+        color: inherit;
+        align-self: stretch;
+    }
 }
 </style>
