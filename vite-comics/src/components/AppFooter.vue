@@ -284,13 +284,13 @@
     }
     
     a {
-        opacity: .6;
+        opacity: .7;
         filter: brightness(100%);
         transition: all .1s linear;
     }
 
     a:hover {
-        opacity: .8;
+        opacity: 1;
         filter: brightness(110%);
     }
 
