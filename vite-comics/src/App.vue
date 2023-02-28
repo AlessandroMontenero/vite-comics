@@ -1,30 +1,86 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import AppHeader from './components/AppHeader.vue'
+import AppMain from './components/AppMain.vue'
+import AppFooter from './components/AppFooter.vue'
+
+
+export default {
+  components: {
+    AppHeader,
+    AppMain,
+    AppFooter
+  }
+}
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+ <AppHeader/>
+ <AppMain />
+ <AppFooter />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style lang="scss">
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+h2 {
+  font-size: 1.2rem;
+  margin: .8rem 0;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+h3 {
+  font-size: .9rem;
+  margin: .6rem 0;
 }
+
+h4 {
+  font-size: .8rem;
+}
+
+h5 {
+  font-size: .8rem;
+}
+
+.blue {
+  color: rgb(60, 130, 240);
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a {
+  opacity: .9;
+  filter: brightness(100%);
+  transition: all .1s linear;
+}
+a:hover {
+  opacity: 1;
+  filter: brightness(110%);
+}
+
+
+
+
 </style>
